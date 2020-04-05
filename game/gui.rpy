@@ -4,14 +4,12 @@
 
 ## The init offset statement causes the initialization statements in this file
 ## to run before init statements in any other file.
-init offset = -2
+init offset = -3
 
 ## Calling gui.init resets the styles to sensible default values, and sets the
 ## width and height of the game.
 init python:
     gui.init(1280, 720)
-
-
 
 ################################################################################
 ## GUI Configuration Variables
@@ -23,17 +21,17 @@ init python:
 ## The colors of text in the interface.
 
 ## An accent color used throughout the interface to label and highlight text.
-define gui.accent_color = '#003366'
+define gui.accent_color = '#663300'
 
 ## The color used for a text button when it is neither selected nor hovered.
 define gui.idle_color = '#aaaaaa'
 
 ## The small color is used for small text, which needs to be brighter/darker to
 ## achieve the same effect.
-define gui.idle_small_color = '#888888'
+define gui.idle_small_color = '#AAAAAA'
 
 ## The color that is used for buttons and bars that are hovered.
-define gui.hover_color = '#003366'
+define gui.hover_color = '#663300'
 
 ## The color used for a text button when it is selected but not focused. A
 ## button is selected if it is the current screen or preference value.
@@ -48,7 +46,7 @@ define gui.muted_color = '#6684a3'
 define gui.hover_muted_color = '#99adc1'
 
 ## The colors used for dialogue and menu choice text.
-define gui.text_color = '#404040'
+define gui.text_color = '#FFFFFF'
 define gui.interface_text_color = '#404040'
 
 
@@ -64,7 +62,7 @@ define gui.name_text_font = "DejaVuSans.ttf"
 define gui.interface_text_font = "DejaVuSans.ttf"
 
 ## The size of normal dialogue text.
-define gui.text_size = 22
+define gui.text_size = 18
 
 ## The size of character names.
 define gui.name_text_size = 30
@@ -104,7 +102,7 @@ define gui.textbox_yalign = 1.0
 
 ## The placement of the speaking character's name, relative to the textbox.
 ## These can be a whole number of pixels from the left or top, or 0.5 to center.
-define gui.name_xpos = 240
+define gui.name_xpos = 178
 define gui.name_ypos = 0
 
 ## The horizontal alignment of the character's name. This can be 0.0 for left-
@@ -113,12 +111,12 @@ define gui.name_xalign = 0.0
 
 ## The width, height, and borders of the box containing the character's name, or
 ## None to automatically size it.
-define gui.namebox_width = None
-define gui.namebox_height = None
+define gui.namebox_width = 304
+define gui.namebox_height = 62
 
 ## The borders of the box containing the character's name, in left, top, right,
 ## bottom order.
-define gui.namebox_borders = Borders(5, 5, 5, 5)
+define gui.namebox_borders = Borders(40, 10, 40, 10)
 
 ## If True, the background of the namebox will be tiled, if False, the
 ## background of the namebox will be scaled.
@@ -128,11 +126,11 @@ define gui.namebox_tile = False
 ## The placement of dialogue relative to the textbox. These can be a whole
 ## number of pixels relative to the left or top side of the textbox, or 0.5 to
 ## center.
-define gui.dialogue_xpos = 268
-define gui.dialogue_ypos = 50
+define gui.dialogue_xpos = 220
+define gui.dialogue_ypos = 64
 
 ## The maximum width of dialogue text, in pixels.
-define gui.dialogue_width = 744
+define gui.dialogue_width = 840
 
 ## The horizontal alignment of the dialogue text. This can be 0.0 for left-
 ## aligned, 0.5 for centered, and 1.0 for right-aligned.
@@ -186,7 +184,7 @@ define gui.confirm_button_text_xalign = 0.5
 
 define gui.page_button_borders = Borders(10, 4, 10, 4)
 
-define gui.quick_button_borders = Borders(10, 4, 10, 0)
+define gui.quick_button_borders = Borders(10, 0, 10, 12)
 define gui.quick_button_text_size = 14
 define gui.quick_button_text_idle_color = gui.idle_small_color
 define gui.quick_button_text_selected_color = gui.accent_color
@@ -432,7 +430,7 @@ init python:
         gui.label_text_size = 34
 
         ## Adjust the location of the textbox.
-        gui.textbox_height = 240
+        gui.textbox_height = 0
         gui.name_xpos = 80
         gui.text_xpos = 90
         gui.text_width = 1100
@@ -469,6 +467,3 @@ init python:
 
         gui.nvl_button_width = 1240
         gui.nvl_button_xpos = 20
-
-
-

@@ -2,7 +2,7 @@
 ## Initialization
 ################################################################################
 
-init offset = -1
+init offset = -2
 
 
 ################################################################################
@@ -24,14 +24,12 @@ style hyperlink_text:
 style gui_text:
     properties gui.text_properties("interface")
 
-
 style button:
     properties gui.button_properties("button")
 
 style button_text is gui_text:
     properties gui.text_properties("button")
     yalign 0.5
-
 
 style label_text is gui_text:
     properties gui.text_properties("label", accent=True)
@@ -96,18 +94,15 @@ style frame:
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
 screen say(who, what):
-    style_prefix "say"
 
+    style_prefix "say"
     window:
         id "window"
-
         if who is not None:
-
             window:
                 id "namebox"
                 style "namebox"
                 text who id "who"
-
         text what id "what"
 
 
@@ -121,7 +116,6 @@ screen say(who, what):
 init python:
     config.character_id_prefixes.append('namebox')
 
-style window is default
 style say_label is default
 style say_dialogue is default
 style say_thought is say_dialogue
@@ -133,6 +127,7 @@ style namebox_label is say_label
 style window:
     xalign 0.5
     xfill True
+    yfill True
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
@@ -250,7 +245,7 @@ screen quick_menu():
         hbox:
             style_prefix "quick"
 
-            xalign 0.5
+            xalign 0.75
             yalign 1.0
 
             textbutton _("Back") action Rollback()
@@ -289,7 +284,7 @@ style quick_button_text:
 ## This screen is included in the main and game menus, and provides navigation
 ## to other menus, and to start the game.
 
-screen navigation():
+screen mm_navigation():
 
     vbox:
         style_prefix "navigation"
@@ -299,27 +294,11 @@ screen navigation():
 
         spacing gui.navigation_spacing
 
-        if main_menu:
-
-            textbutton _("Start") action Start()
-
-        else:
-
-            textbutton _("History") action ShowMenu("history")
-
-            textbutton _("Save") action ShowMenu("save")
+        imagebutton auto "gui/button/mm_play_%s.png" action Start()
 
         textbutton _("Load") action ShowMenu("load")
 
         textbutton _("Preferences") action ShowMenu("preferences")
-
-        if _in_replay:
-
-            textbutton _("End Replay") action EndReplay(confirm=True)
-
-        elif not main_menu:
-
-            textbutton _("Main Menu") action MainMenu()
 
         textbutton _("About") action ShowMenu("about")
 
@@ -367,7 +346,7 @@ screen main_menu():
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
-    use navigation
+    use mm_navigation
 
     if gui.show_name:
 
@@ -386,7 +365,7 @@ style main_menu_title is main_menu_text
 style main_menu_version is main_menu_text
 
 style main_menu_frame:
-    xsize 280
+    xfill True
     yfill True
 
     background "gui/overlay/main_menu.png"
@@ -471,7 +450,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
                     transclude
 
-    use navigation
+    #use navigation
 
     textbutton _("Return"):
         style "return_button"
