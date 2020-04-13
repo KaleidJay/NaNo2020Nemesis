@@ -253,6 +253,12 @@ screen quick_menu():
     ## Ensure this appears on top of other screens.
     zorder 100
 
+    imagebutton auto "gui/button/pause_%s.png":
+        action ShowMenu()
+        xanchor 1.0
+        xpos 1264
+        ypos 16
+
     if quick_menu:
 
         hbox:
@@ -264,10 +270,8 @@ screen quick_menu():
             textbutton _("Back") action Rollback()
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
             textbutton _("Q.Save") action QuickSave()
             textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -551,7 +555,33 @@ screen file_slots(title):
             add "gui/overlay/game_menu_load.png"
 
         fixed:
-            
+            ## The grid of file slots.
+            grid gui.file_slot_cols gui.file_slot_rows:
+                style_prefix "slot"
+
+                xalign 0.8
+                yalign 0.6
+
+                spacing gui.slot_spacing
+
+                for i in range(gui.file_slot_cols * gui.file_slot_rows):
+
+                    $ slot = i + 1
+
+                    button:
+                        action FileAction(slot)
+
+                        has vbox
+
+                        add FileScreenshot(slot) xalign 0.5
+
+                        text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
+                            style "slot_time_text"
+
+                        text FileSaveName(slot):
+                            style "slot_name_text"
+
+                        key "save_delete" action FileDelete(slot)
 
             vbox:
                 xpos 338

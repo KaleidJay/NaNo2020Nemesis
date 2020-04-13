@@ -6,19 +6,41 @@ define r = Character("Rumi", image = "rumi")
 
 define mc = Character("David", image = "mc")
 
-define pg = Character("Angela", image = "angela")
+define pg = Character("Angela", image = "pg")
 
 define weeb = Character("Rick", image = "weeb")
 
 define m = Character("May")
 
+define mcmom = Character("David's Mom")
+
+define rdad = Character("Rumi's Dad")
+
 define mike = Character("Mike")
 
 define popgirl = Character("Anna")
 
-define rfriend = Character("Some ass kissing bitch")
+define rfriend = Character("{size=-11}Some ass-kissing bitch{/size}")
 
 define tea = Character("Teacher")
+
+define kat = Character("Katrina")
+
+define caren = Character("Caren")
+
+define sandra = Character("Sandra")
+
+define yui = Character("Yui")
+
+define leona = Character("Leona")
+
+define waitress = Character("Waitress")
+
+define waitressJ = Character("Josephine")
+
+define unknownA = Character("??? #1")
+
+define unknownB = Character("??? #2")
 
 
 # Position Definitions
@@ -36,12 +58,12 @@ transform one:
 
 transform two_left:
     position
-    xalign 1.0/3.0
+    xalign 0.275
     yoffset pov_offset
 
 transform two_right:
     position
-    xalign 2.0/3.0
+    xalign 0.725
     yoffset pov_offset
 
 transform three_left:
@@ -121,23 +143,26 @@ image bg bus_stop_morning = im.Scale("images/bg/bus stop morning.jpg", 1280, 720
 image bg bus_stop_night = im.Scale("images/bg/bus stop night.jpg", 1280, 720)
 image bg classroom = im.Scale("images/bg/Classroom_01_day.jpg", 1280, 720)
 image bg classroom_2 = im.Scale("images/bg/Classroom_02_day.jpg", 1280, 720)
+image bg rooftop = im.Scale("images/bg/uncle_mugen_school_building_rooftop_day.jpg", 1280, 941)
+image bg gym = im.Scale("images/bg/basketball court.png", 1280, 908)
+image bg gym_showers = im.Scale("images/bg/toilet_04.jpg", 1280, 720)
 image bg evening = im.Scale("images/bg/evening02.jpg", 1280, 720)
 image bg kitchen_day = im.Scale("images/bg/kitchen_day.jpg", 1280, 720)
 image bg kitchen_night = im.Scale("images/bg/kitchen_night.jpg", 1280, 720)
 image bg library = im.Scale("images/bg/library.png", 1280, 720)
 image bg apartment_evening = im.Scale("images/bg/old_apartment_evening.jpg", 1280, 720)
 image bg apartment_noon = im.Scale("images/bg/old_apartment_noon.jpg", 1280, 720)
-image bg roadisde_dawn = im.Scale("images/bg/roadside_dawn.jpg", 1280, 720)
-image bg roadisde_morning = im.Scale("images/bg/roadside_morning.jpg", 1280, 720)
-image bg roadisde_night = im.Scale("images/bg/roadside_night_fullmoon.jpg", 1280, 720)
+image bg roadside_dawn = im.Scale("images/bg/roadside_dawn.jpg", 1280, 720)
+image bg roadside_morning = im.Scale("images/bg/roadside_morning.jpg", 1280, 720)
+image bg roadside_night = im.Scale("images/bg/roadside_night_fullmoon.jpg", 1280, 720)
 image bg room = im.Scale("images/bg/room.jpg", 1280, 720)
 image bg room_dawn = im.Scale("images/bg/room_dawn_light_off.jpg", 1280, 720)
 image bg room_dusk = im.Scale("images/bg/room_dusk_light_off.jpg", 1280, 720)
 image bg room_dusk_light = im.Scale("images/bg/room_dusk_light_on.jpg", 1280, 720)
 image bg room_evening = im.Scale("images/bg/room_evening_light_off.jpg", 1280, 720)
 image bg room_noon = im.Scale("images/bg/room_noon_light_off.jpg", 1280, 720)
-image bg corridor = im.Scale("image/bg/school_corridor_background.jpg", 1280, 720)
-image bg corridor_2 = im.Scale("image/bg/uncle mugen school corridor morning.jpg", 1280, 720)
+image bg corridor = im.Scale("images/bg/school_corridor_background.jpg", 1280, 720)
+image bg corridor_2 = im.Scale("images/bg/uncle mugen school corridor morning.jpg", 1280, 720)
 image bg seaside_road_evening = im.Scale("images/bg/seaside_road_evening.jpg", 1280, 720)
 image bg seaside_road_morning = im.Scale("images/bg/seaside_road_morning.jpg", 1280, 720)
 image bg seaside_road_sunset = im.Scale("images/bg/seaside_road_sunset.jpg", 1280, 720)
@@ -147,15 +172,20 @@ image bg street = im.Scale("images/bg/Street Background.jpg", 1280, 720)
 image bg street_2 = im.Scale("images/bg/street_background_01.jpg", 1280, 720)
 image bg street_3 = im.Scale("images/bg/street_background_04.jpg", 1280, 720)
 image bg street_4 = im.Scale("images/bg/this_better_be_good_because_the_render_time_for_this_bg_is_horrendous_despite_having_a_render_farm.jpg", 1280, 720)
-
-
+image bg street_5 = im.Scale("images/bg/street_background_00.jpg", 1280, 720)
 
 image bg_room = im.Scale("images/bg/room.jpg", 1280, 720)
 image bg_room_dusk_light = im.Scale("images/bg/room_dusk_light_on.jpg", 1280, 720)
 
+image bg bighouse = im.Scale("images/bg/the_jp_mansion_night.jpg", 1280, 844)
+
+# The following BGs are from Guttari Nyanko (guttari8.sakura.ne.jp)
+image bg bighouse_lobby = im.Scale("images/bg/bijyutukan00.jpg", 1280, 960)
+image bg bighouse_dining = im.Scale("images/bg/rissyoku00a.jpg", 1280, 960)
+image bg bighouse_table = im.Scale("images/bg/syokudou00.jpg", 1280, 960)
+image bg bighouse_lib = im.Scale("images/bg/tosyo00.jpg", 1280, 960)
 
 image white = "#ffffff"
 
-
-
-# CG Definitions
+# Text Generators
+image txt cen = renpy.ParameterizedText(ypos=0.5, xpos=0.5, xalign=0.5, yalign=0.5, text_align=0.5)
